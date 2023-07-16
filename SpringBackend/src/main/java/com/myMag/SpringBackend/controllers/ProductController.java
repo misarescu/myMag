@@ -19,12 +19,10 @@ public class ProductController {
 
     @GetMapping
     public List<Product> getAll(){
-        System.out.println("Get mapping no id");
         return productRepository.findAll();
     }
     @GetMapping("/{id}")
     public Product getProduct(@PathVariable("id") String stringId){
-        System.out.println("Get mapping with id: " + stringId);
         UUID id = UUID.fromString(stringId);
         return productRepository.findById(id)
                 .orElseThrow(()-> new ProductNotFoundException(id));
@@ -32,7 +30,6 @@ public class ProductController {
 
     @PostMapping
     public Product postProduct(@RequestBody ProductDTO newProductDTO){
-        System.out.println("Post mapping");
         UUID id = UUID.randomUUID();
         Product newProduct = new Product(id,newProductDTO.getName(), newProductDTO.getDescription());
         return productRepository.save(newProduct);
@@ -40,7 +37,6 @@ public class ProductController {
 
     @PutMapping("/{id}")
     public Product putProduct(@PathVariable("id") String stringId, @RequestBody ProductDTO newProductDTO){
-        System.out.println("Put mapping with id");
         UUID id = UUID.fromString(stringId);
         Product newProduct = new Product(id,newProductDTO.getName(), newProductDTO.getDescription());
         return productRepository.findById(id)
@@ -57,7 +53,6 @@ public class ProductController {
 
     @DeleteMapping("/{id}")
     public Product deleteProduct(@PathVariable("id") String stringId){
-        System.out.println("Delete mapping with id");
         UUID id = UUID.fromString(stringId);
         Product deletedProduct = productRepository
                 .findById(id)
