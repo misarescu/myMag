@@ -10,10 +10,10 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.UUID;
 
-@Entity(name="product")
+@Entity(name = "product")
 public class Product {
     @Id
-    @GeneratedValue(strategy= GenerationType.UUID)
+    @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
     private String name;
     private String description;
@@ -56,7 +56,9 @@ public class Product {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Product product = (Product) o;
-        return Objects.equals(id, product.id) && Objects.equals(name, product.name) && Objects.equals(description, product.description);
+        return Objects.equals(id, product.id) &&
+                Objects.equals(name, product.name)
+                && Objects.equals(description, product.description);
     }
 
     @Override
