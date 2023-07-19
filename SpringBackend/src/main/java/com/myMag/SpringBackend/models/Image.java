@@ -19,8 +19,7 @@ public class Image {
     public Image() {
     }
 
-    public Image(UUID id, String link) {
-        this.id = id;
+    public Image(String link) {
         this.link = link;
     }
 

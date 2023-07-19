@@ -32,15 +32,27 @@ public class ProductController {
 
     @PostMapping
     public Product postProduct(@RequestBody ProductDTO newProductDTO) {
-        UUID id = UUID.randomUUID();
-        Product newProduct = new Product(id, newProductDTO.getName(), newProductDTO.getDescription());
+//        UUID id = UUID.randomUUID();
+        Product newProduct = new Product(
+                newProductDTO.getName(),
+                newProductDTO.getDescription(),
+                newProductDTO.getPrice(),
+                newProductDTO.getDiscount(),
+                newProductDTO.getRating(),
+                newProductDTO.getQuantity());
         return productRepository.save(newProduct);
     }
 
     @PutMapping("/{id}")
     public Product putProduct(@PathVariable("id") String stringId, @RequestBody ProductDTO newProductDTO) {
         UUID id = UUID.fromString(stringId);
-        Product newProduct = new Product(id, newProductDTO.getName(), newProductDTO.getDescription());
+        Product newProduct = new Product(
+                newProductDTO.getName(),
+                newProductDTO.getDescription(),
+                newProductDTO.getPrice(),
+                newProductDTO.getDiscount(),
+                newProductDTO.getRating(),
+                newProductDTO.getQuantity());
         return productRepository.findById(id)
                 .map(product -> {
                     product.setName(newProduct.getName());

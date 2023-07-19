@@ -111,7 +111,7 @@ public class Address {
     public Address() {
     }
 
-    public Address(UUID id, String country, String county, String city, String street, String block, String floor, String apartment, String postalCode) {
+    public Address(String country, String county, String city, String street, String block, String floor, String apartment, String postalCode) {
         this.id = id;
         this.country = country;
         this.county = county;

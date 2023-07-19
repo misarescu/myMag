@@ -1,13 +1,9 @@
 package com.myMag.SpringBackend.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.annotation.Nullable;
+import jakarta.persistence.*;
 
-import java.util.ArrayList;
-import java.util.Map;
-import java.util.Objects;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -17,14 +13,34 @@ public class Product {
     private UUID id;
     private String name;
     private String description;
+    private float price;
+    private float discount;
+    private float rating;
+    @OneToMany
+    private List<Spec> specs;
+    @OneToMany
+    private List<Image> images;
 
-    public Product(UUID id, String name, String description) {
-        this.id = id;
+    public Product(String name, String description, float price, float discount, float rating, int quantity, List<Spec> specs, List<Image> images) {
         this.name = name;
         this.description = description;
+        this.price = price;
+        this.discount = discount;
+        this.rating = rating;
+        this.quantity = quantity;
+        this.specs = specs;
+        this.images = images;
     }
 
-    public Product() {
+    private int quantity;
+
+    public Product( String name, String description, float price, float discount, float rating, int quantity) {
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.discount = discount;
+        this.rating = rating;
+        this.quantity = quantity;
     }
 
     public UUID getId() {
@@ -51,27 +67,53 @@ public class Product {
         this.description = description;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Product product = (Product) o;
-        return Objects.equals(id, product.id) &&
-                Objects.equals(name, product.name)
-                && Objects.equals(description, product.description);
+    public float getPrice() {
+        return price;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, name, description);
+    public void setPrice(float price) {
+        this.price = price;
     }
 
-    @Override
-    public String toString() {
-        return "Product{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                '}';
+    public float getDiscount() {
+        return discount;
     }
+
+    public void setDiscount(float discount) {
+        this.discount = discount;
+    }
+
+    public float getRating() {
+        return rating;
+    }
+
+    public void setRating(float rating) {
+        this.rating = rating;
+    }
+
+    public List<Spec> getSpecs() {
+        return specs;
+    }
+
+    public void setSpecs(List<Spec> specs) {
+        this.specs = specs;
+    }
+
+    public List<Image> getImages() {
+        return images;
+    }
+
+    public void setImages(List<Image> images) {
+        this.images = images;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+
 }
