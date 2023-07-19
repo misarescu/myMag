@@ -12,9 +12,9 @@ public class Review {
     private String title;
     private String content;
     private int rating;
-    @OneToOne(mappedBy = "productReview")
+//    @OneToOne(mappedBy = "review")
     private Product product;
-    @OneToOne(mappedBy = "sellerReview")
+//    @OneToOne(mappedBy = "review")
     private Seller seller;
 
     public Review() {

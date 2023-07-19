@@ -20,7 +20,7 @@ public class Product {
     private List<Spec> specs;
     @OneToMany
     private List<Image> images;
-    @OneToOne(mappedBy = "product_stock")
+    @OneToOne(mappedBy = "product")
     private SellerStock stock;
 
     public Product(String name, String description, float price, float discount, float rating, int quantity, List<Spec> specs, List<Image> images, SellerStock stock) {
