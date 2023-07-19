@@ -15,13 +15,15 @@ public class Product {
     private float price;
     private float discount;
     private float rating;
+    private int quantity;
     @OneToMany
     private List<Spec> specs;
     @OneToMany
     private List<Image> images;
-    private int quantity;
+    @OneToOne(mappedBy = "product_stock")
+    private SellerStock stock;
 
-    public Product(String name, String description, float price, float discount, float rating, int quantity, List<Spec> specs, List<Image> images) {
+    public Product(String name, String description, float price, float discount, float rating, int quantity, List<Spec> specs, List<Image> images, SellerStock stock) {
         this.name = name;
         this.description = description;
         this.price = price;
@@ -30,6 +32,7 @@ public class Product {
         this.quantity = quantity;
         this.specs = specs;
         this.images = images;
+        this.stock = stock;
     }
 
     public Product(String name, String description, float price, float discount, float rating, int quantity) {
