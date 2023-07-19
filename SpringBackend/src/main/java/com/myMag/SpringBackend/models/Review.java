@@ -1,6 +1,5 @@
 package com.myMag.SpringBackend.models;
 
-import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 
 import java.util.UUID;
@@ -17,6 +16,9 @@ public class Review {
     private Product product;
     @OneToOne(mappedBy = "sellerReview")
     private Seller seller;
+
+    public Review() {
+    }
 
     public Review(String title, String content, int rating, Product product, Seller seller) {
         this.title = title;

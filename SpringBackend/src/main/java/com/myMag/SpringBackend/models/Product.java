@@ -1,6 +1,5 @@
 package com.myMag.SpringBackend.models;
 
-import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -20,6 +19,7 @@ public class Product {
     private List<Spec> specs;
     @OneToMany
     private List<Image> images;
+    private int quantity;
 
     public Product(String name, String description, float price, float discount, float rating, int quantity, List<Spec> specs, List<Image> images) {
         this.name = name;
@@ -32,9 +32,7 @@ public class Product {
         this.images = images;
     }
 
-    private int quantity;
-
-    public Product( String name, String description, float price, float discount, float rating, int quantity) {
+    public Product(String name, String description, float price, float discount, float rating, int quantity) {
         this.name = name;
         this.description = description;
         this.price = price;

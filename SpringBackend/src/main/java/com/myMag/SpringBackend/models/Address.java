@@ -23,6 +23,21 @@ public class Address {
     private String apartment;
     private String postalCode;
 
+    public Address() {
+    }
+
+    public Address(String country, String county, String city, String street, String block, String floor, String apartment, String postalCode) {
+        this.id = id;
+        this.country = country;
+        this.county = county;
+        this.city = city;
+        this.street = street;
+        this.block = block;
+        this.floor = floor;
+        this.apartment = apartment;
+        this.postalCode = postalCode;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -105,21 +120,6 @@ public class Address {
     }
 
     public void setPostalCode(String postalCode) {
-        this.postalCode = postalCode;
-    }
-
-    public Address() {
-    }
-
-    public Address(String country, String county, String city, String street, String block, String floor, String apartment, String postalCode) {
-        this.id = id;
-        this.country = country;
-        this.county = county;
-        this.city = city;
-        this.street = street;
-        this.block = block;
-        this.floor = floor;
-        this.apartment = apartment;
         this.postalCode = postalCode;
     }
 }
