@@ -1,9 +1,6 @@
 package com.myMag.SpringBackend.models.concreteModels;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 import java.util.UUID;
@@ -17,6 +14,10 @@ public class Warranty {
     private LocalDate buyDate;
     private LocalDate expiryDate;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Customer customer;
+    @ManyToOne(fetch=FetchType.LAZY)
+    private Product product;
     public Warranty() {
     }
 

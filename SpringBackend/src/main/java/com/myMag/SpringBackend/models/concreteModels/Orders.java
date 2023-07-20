@@ -15,6 +15,8 @@ public class Orders {
     private float billedAmount;
     @Enumerated(EnumType.ORDINAL)
     private OrderStatus orderStatus;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Customer customer;
 
     public Orders() {
     }

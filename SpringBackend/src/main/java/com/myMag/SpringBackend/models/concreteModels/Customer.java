@@ -3,6 +3,7 @@ package com.myMag.SpringBackend.models.concreteModels;
 import jakarta.persistence.*;
 
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 @Entity
@@ -17,6 +18,25 @@ public class Customer {
     private List<CustomerBillingAddress> billingAddresses;
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<CustomerShippingAddress> shippingAddresses;
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
+    private List<Orders> orders;
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Review> reviews;
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
+    private List<Orders> warranties;
+    @ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+    @JoinTable(name="favourite_customer_product",
+        joinColumns = @JoinColumn(name="customer_id"),
+        inverseJoinColumns = @JoinColumn(name="product_id")
+    )
+    private Set<Product> favouriteProducts;
+
+    @ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+    @JoinTable(name="cart_customer_product",
+        joinColumns = @JoinColumn(name="customer_id"),
+        inverseJoinColumns = @JoinColumn(name="product_id")
+    )
+    private Set<Product> cartProducts;
 
     public Customer() {
     }

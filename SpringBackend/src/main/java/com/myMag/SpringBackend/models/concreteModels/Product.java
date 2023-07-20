@@ -1,10 +1,8 @@
 package com.myMag.SpringBackend.models.concreteModels;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
+import java.util.Set;
 import java.util.UUID;
 
 @Entity
@@ -17,6 +15,15 @@ public class Product {
     private String description;
     private float discount;
     private float rating;
+
+    @ManyToMany(mappedBy="favouriteProducts")
+    private Set<Customer> favouriteCustomers;
+
+    @ManyToMany(mappedBy = "cartProducts")
+    private Set<Customer> cartCustomers;
+
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<Warranty> warranties;
 
     public Product() {
     }
@@ -60,4 +67,5 @@ public class Product {
     public void setRating(float rating) {
         this.rating = rating;
     }
+
 }
