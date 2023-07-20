@@ -1,6 +1,6 @@
-package com.myMag.SpringBackend.controllers.Advice;
+package com.myMag.SpringBackend.controllers.advice;
 
-import com.myMag.SpringBackend.controllers.Exceptions.ProductNotFoundException;
+import com.myMag.SpringBackend.controllers.exceptions.ProductNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;

@@ -1,4 +1,4 @@
-package com.myMag.SpringBackend.Types;
+package com.myMag.SpringBackend.types;
 
 public enum OrderStatus {
     CREATED,

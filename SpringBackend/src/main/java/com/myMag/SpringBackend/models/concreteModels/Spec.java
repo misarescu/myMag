@@ -1,11 +1,10 @@
-package com.myMag.SpringBackend.models;
+package com.myMag.SpringBackend.models.concreteModels;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
-import java.util.Objects;
 import java.util.UUID;
 
 @Entity
@@ -20,27 +19,6 @@ public class Spec {
     private float numberValue;
 
     public Spec() {
-    }
-
-    public Spec(UUID id, String name, boolean isString, String stringValue, float numberValue) {
-        this.id = id;
-        this.name = name;
-        this.isString = isString;
-        this.stringValue = stringValue;
-        this.numberValue = numberValue;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Spec spec = (Spec) o;
-        return isString == spec.isString && Float.compare(spec.numberValue, numberValue) == 0 && Objects.equals(id, spec.id) && Objects.equals(name, spec.name) && Objects.equals(stringValue, spec.stringValue);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, name, isString, stringValue, numberValue);
     }
 
     public UUID getId() {

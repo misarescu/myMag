@@ -1,4 +1,4 @@
-package com.myMag.SpringBackend.controllers.Exceptions;
+package com.myMag.SpringBackend.controllers.exceptions;
 
 import java.util.UUID;
 
