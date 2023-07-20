@@ -16,6 +16,12 @@ public class Review {
     @ManyToOne(fetch = FetchType.LAZY)
     private Customer customer;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Seller seller;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Product product;
+
     public Review() {
     }
 

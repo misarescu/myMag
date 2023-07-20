@@ -2,7 +2,7 @@ package com.myMag.SpringBackend.models.concreteModels;
 
 import jakarta.persistence.*;
 
-import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 @Entity
@@ -16,7 +16,10 @@ public class Seller {
     private float rating;
 
     @OneToMany(mappedBy = "seller")
-    private List<SellerAddress> addresses;
+    private Set<SellerAddress> addresses;
+
+    @OneToMany(mappedBy = "seller")
+    private Set<Review> reviews;
 
     public Seller() {
     }

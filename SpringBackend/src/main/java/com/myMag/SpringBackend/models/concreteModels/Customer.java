@@ -15,15 +15,15 @@ public class Customer {
     private String userName;
     private String password;
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<CustomerBillingAddress> billingAddresses;
+    private Set<CustomerBillingAddress> billingAddresses;
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<CustomerShippingAddress> shippingAddresses;
+    private Set<CustomerShippingAddress> shippingAddresses;
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
-    private List<Orders> orders;
+    private Set<Orders> orders;
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Review> reviews;
+    private Set<Review> reviews;
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
-    private List<Orders> warranties;
+    private Set<Orders> warranties;
     @ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
     @JoinTable(name="favourite_customer_product",
         joinColumns = @JoinColumn(name="customer_id"),
