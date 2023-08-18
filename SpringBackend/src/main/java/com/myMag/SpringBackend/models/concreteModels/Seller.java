@@ -21,6 +21,9 @@ public class Seller {
     @OneToMany(mappedBy = "seller")
     private Set<Review> reviews;
 
+    @OneToMany(mappedBy = "seller")
+    private Set<PaymentMethod> paymentMethods;
+
     public Seller() {
     }
 

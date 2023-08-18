@@ -23,7 +23,9 @@ public class Customer {
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Review> reviews;
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
-    private Set<Orders> warranties;
+    private Set<Warranty> warranties;
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
+    private Set<PaymentMethod> paymentMethods;
     @ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
     @JoinTable(name="favourite_customer_product",
         joinColumns = @JoinColumn(name="customer_id"),

@@ -1,9 +1,6 @@
 package com.myMag.SpringBackend.models.concreteModels;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.UUID;
 
@@ -15,6 +12,12 @@ public class PaymentMethod {
 
     private String paymentProvider;
     private String details;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Customer customer;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Seller seller;
 
     public PaymentMethod() {
     }
