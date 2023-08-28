@@ -1,9 +1,6 @@
 package com.myMag.SpringBackend.models.concreteModels;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.UUID;
 
@@ -17,6 +14,8 @@ public class Spec {
     private boolean isString;
     private String stringValue;
     private float numberValue;
+    @ManyToOne
+    private Product product;
 
     public Spec() {
     }
