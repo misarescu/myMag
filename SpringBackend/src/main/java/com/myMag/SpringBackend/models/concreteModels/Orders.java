@@ -3,6 +3,7 @@ package com.myMag.SpringBackend.models.concreteModels;
 import com.myMag.SpringBackend.types.OrderStatus;
 import jakarta.persistence.*;
 
+import java.util.Set;
 import java.util.UUID;
 
 // this is named plural because order is a reserved keyword in mysql
@@ -17,6 +18,17 @@ public class Orders {
     private OrderStatus orderStatus;
     @ManyToOne(fetch = FetchType.LAZY)
     private Customer customer;
+
+    @OneToOne
+    private PaymentMethod paymentMethod;
+
+    @OneToOne
+    private CustomerShippingAddress customerShippingAddress;
+    @OneToOne
+    private CustomerBillingAddress customerBillingAddress;
+
+    @OneToMany(mappedBy = "orders")
+    private Set<Product> products;
 
     public Orders() {
     }
