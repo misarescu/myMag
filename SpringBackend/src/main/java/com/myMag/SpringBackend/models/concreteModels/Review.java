@@ -2,6 +2,7 @@ package com.myMag.SpringBackend.models.concreteModels;
 
 import jakarta.persistence.*;
 
+import java.util.Set;
 import java.util.UUID;
 
 @Entity
@@ -21,6 +22,9 @@ public class Review {
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Product product;
+
+    @OneToMany(mappedBy = "review")
+    private Set<Image> images;
     public Review() {
     }
 
