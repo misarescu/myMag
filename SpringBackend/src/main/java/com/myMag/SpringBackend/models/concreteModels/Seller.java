@@ -24,6 +24,9 @@ public class Seller {
     @OneToMany(mappedBy = "seller")
     private Set<PaymentMethod> paymentMethods;
 
+    @OneToOne(mappedBy = "seller")
+    private SellerStock sellerStocks;
+
     public Seller() {
     }
 

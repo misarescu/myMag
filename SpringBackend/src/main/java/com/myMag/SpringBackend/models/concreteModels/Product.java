@@ -30,6 +30,9 @@ public class Product {
     @ManyToOne(fetch = FetchType.LAZY)
     private Orders orders;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    private SellerStock sellerStock;
+
     @ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
     @JoinTable(name="products_specs",
             joinColumns = @JoinColumn(name="product_id"),

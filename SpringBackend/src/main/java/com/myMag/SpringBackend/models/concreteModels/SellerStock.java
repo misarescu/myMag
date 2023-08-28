@@ -1,10 +1,8 @@
 package com.myMag.SpringBackend.models.concreteModels;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
+import java.util.Set;
 import java.util.UUID;
 
 @Entity
@@ -14,6 +12,12 @@ public class SellerStock {
     private UUID id;
 
     private int quantity;
+
+    @OneToOne
+    private Seller seller;
+
+    @OneToMany(mappedBy = "sellerStock")
+    private Set<Product> products;
 
     public SellerStock() {
     }
